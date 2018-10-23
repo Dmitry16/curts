@@ -5,8 +5,7 @@ module.exports = {
     entry: "./src/index.tsx",
     output: {
         publicPath: "/",
-        filename: "bundle.js",
-        path: __dirname + "/dist"
+        filename: "bundle.js"
     },
 
     // Enable sourcemaps for debugging webpack's output.
@@ -39,7 +38,7 @@ module.exports = {
     //     "react-dom": "ReactDOM"
     // },
     devServer: {
-        contentBase: `${__dirname}/dist`,
+        contentBase: __dirname,
         watchContentBase: true,
         publicPath: '/',
         port: 8080
