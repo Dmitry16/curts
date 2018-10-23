@@ -80,7 +80,7 @@ class App extends Component<AppProps, {}> {
           <MuiThemeProvider>
             <ContainerMain>
               <Header />
-                <Route exact={true} path='/' render={renderInit} />
+                <Route exact={true} path='/curts' render={renderInit} />
                 <Route path='/about' component={About} />
             </ContainerMain>
           </MuiThemeProvider>
