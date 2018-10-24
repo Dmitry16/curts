@@ -1,8 +1,6 @@
 import { createSelector } from 'reselect';
 
-const currencies = (store) => {
-  return store.currency;
-};
+const currencies = (store) => store.currency;
 
 const selectedCurrencies = currency => currency.selectedCurrencies;
 
