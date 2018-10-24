@@ -41,7 +41,7 @@ class App extends Component<AppProps, {}> {
 
   componentWillMount() {
     let localStorageRec = getFromLocalStorage();
-    this.props.dispatch({type: 'AUTH', appKey: 'd934bced1d4d402891512ca4937298a9'});
+    this.props.dispatch({type: 'AUTH'});
     
     if (localStorageRec.length !== 0) {
       // console.log('componentWillMount localStorageRec:', localStorageRec[localStorageRec.length-1]);
@@ -98,7 +98,7 @@ class App extends Component<AppProps, {}> {
           <MuiThemeProvider>
             <ContainerMain>
               <Header />
-                <Route path='/' render={renderInit} />
+                <Route path='/curts' render={renderInit} />
                 <Route path='/about' component={About} />
             </ContainerMain>
           </MuiThemeProvider>
