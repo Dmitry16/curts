@@ -4,6 +4,8 @@ import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from "rec
 export default class InitialChart extends Component<{history: any}, {}> {
     render() {
 
+        console.log('InitialChart props::', this.props)
+
         const makeRandomColor = () => {
             let str = '#';
             for (let i=1; i<7; i++) {
@@ -30,13 +32,11 @@ export default class InitialChart extends Component<{history: any}, {}> {
                     <CartesianGrid strokeDasharray="3 3"/>
                     <Tooltip/>
                     <Legend />
-                        {
-                            renderLines()
-                        }
+                        { renderLines() }
                 </LineChart>
             ) : null
         }
-        
+
         return renderCharts()
     }
 }

@@ -90,7 +90,8 @@ export default class ExchangeCalculator extends Component<ExchangeCalculatorProp
 
   render() {
     let currencies = {};
-    // console.log('exchangeCalculator render', this.state);
+    console.log('exchangeCalculator render', this.props);
+
     if (Object.keys(this.props.selectedCurrencies).length > 0) {
       currencies = this.props.selectedCurrencies;
     } else {

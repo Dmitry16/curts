@@ -7,9 +7,14 @@ import * as styles from '../css/mainCSS'
 
 
 export default class MainPage extends Component {
- constructor(props) {
- super(props)
-}
+  constructor(props) {
+    super(props)
+  }
+
+  componentWillMount() {
+    console.log('propzz in mainPaige::', this.props);
+  }
+
  render() {
 
    let children = Children.map(this.props.children, (child =>

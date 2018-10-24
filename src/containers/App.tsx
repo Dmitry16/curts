@@ -41,7 +41,8 @@ class App extends Component<AppProps, {}> {
 
   componentWillMount() {
     let localStorageRec = getFromLocalStorage();
-
+    this.props.dispatch({type: 'AUTH', appKey: 'd934bced1d4d402891512ca4937298a9'});
+    
     if (localStorageRec.length !== 0) {
       // console.log('componentWillMount localStorageRec:', localStorageRec[localStorageRec.length-1]);
       this.props.dispatch(lsRecInjection(localStorageRec[localStorageRec.length-1]));
@@ -51,27 +52,44 @@ class App extends Component<AppProps, {}> {
 
   render() {
 
-  const  { loggedIn } = this.props;
+  const  { loggedIn, currencies } = this.props;
 
   // console.log('transformChartData', transformChartData());
 
     console.log('App render this.props', this.props);
 
     const renderInit = () => {
+      if (currencies)
       return (
         <MainPage {...this.props}>
-          { loggedIn
-            ?
-              <Fragment>
-                <ExchangeCalculator {...this.props} />
-                <RatesSetup {...this.props} />
-                <InitialChart {...this.props} />
-              </Fragment>
-            :
-              <AuthPage />
-          }
+          <Fragment>
+            {/* <About /> */}
+            <ExchangeCalculator {...this.props} />
+            <RatesSetup {...this.props} />
+            <InitialChart {...this.props} />
+          </Fragment>
         </MainPage>
-      );
+      )
+      return null;
+
+        // <MainPage {...this.props}>
+        //   { loggedIn && currencies
+        //     ?
+        //       <Fragment>
+        //         {/* <About /> */}
+        //         <ExchangeCalculator {...this.props} />
+        //         <RatesSetup {...this.props} />
+        //         <InitialChart {...this.props} />
+        //       </Fragment>
+        //     :
+        //     <Fragment>
+        //       <About />
+        //       {/* <ExchangeCalculator {...this.props} /> */}
+        //       {/* <RatesSetup {...this.props} /> */}
+        //       {/* <InitialChart {...this.props} /> */}
+        //     </Fragment>
+        //   }
+        // </MainPage>
     };
 
     return (
@@ -80,7 +98,7 @@ class App extends Component<AppProps, {}> {
           <MuiThemeProvider>
             <ContainerMain>
               <Header />
-                <Route path='/curts' render={renderInit} />
+                <Route path='/' render={renderInit} />
                 <Route path='/about' component={About} />
             </ContainerMain>
           </MuiThemeProvider>
