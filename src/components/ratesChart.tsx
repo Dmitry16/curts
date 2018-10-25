@@ -18,6 +18,7 @@ interface RatesChartProps {
 class RatesSetup extends Component<RatesChartProps, {}> {
   constructor(props) {
     super(props)
+
     this.state = {
       chartSetup: false,
       btnLabel: 'setup'

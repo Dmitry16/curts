@@ -14,32 +14,32 @@ interface ExchangeCalculatorState {
   selectedCurrencyName: string,
   usdQuantity: number,
   currencyQuantity: number,
-  target: string
+  target: string,
+  change: number
 }
 export default class ExchangeCalculator extends Component<ExchangeCalculatorProps, ExchangeCalculatorState> {
   constructor(props) {
     super(props)
+
     this.state = {
      value: 0,
      selectedCurrencyName: Object.keys(this.props.currencies)[0],
      usdQuantity: 1,
      currencyQuantity: 1,
-     target: 'usdQuantity'
+     target: 'usdQuantity',
+     change: 0
     }
   }
 
   handleSelectedCurrencyChange = (e, ind, value) => {
-    // console.log('handleSelectedCurrencyChange',
-      // Object.keys(this.props.currencies)[value]);
     this.setState({
       value: value,
-      selectedCurrencyName: Object.keys(this.props.currencies)[value]
+      selectedCurrencyName: Object.keys(this.props.selectedCurrencies)[value]
     })
   }
 
   matchCurrency = () => {
     if (Object.keys(this.props.selectedCurrencies).length > 0) {
-      // console.log('matchCurrency selectedCurrencies', Object.entries(this.props.selectedCurrencies)[this.state.value][1]);
       return (Object as any).entries(this.props.selectedCurrencies)[this.state.value][1]
     } else {
       return (Object as any).entries(this.props.currencies)[this.state.value][1]
@@ -47,31 +47,37 @@ export default class ExchangeCalculator extends Component<ExchangeCalculatorProp
   }
 
   calculateChange = (target) => {
-    // console.log('calculateChange', this.matchCurrency());
-
+    console.log('calculateChange', this.matchCurrency());
     if (this.state.usdQuantity && this.state.currencyQuantity) {
+
       const change = this.matchCurrency();
+
       if (target && target === 'usdQuantity') {
         this.setState({
           currencyQuantity: this.state.usdQuantity * change
-          // change: change
         });
       }
-      // console.log('calculateChange:', Object.entries(this.props.currencies)[this.state.value][1]);
+      if (target && target === 'currencyQuantity') {
+        this.setState({
+          usdQuantity: this.state.currencyQuantity / change
+        });
+      }
     }
   }
 
   handleChange = (e) => {
-    // console.log('handleChange', e.target);
-    // this.setState({
-    //   [e.target.id]: e.target.value,
-    //   target: e.target.id,
-    // });
+    this.setState({
+      target: e.target.id,
+      [e.target.id]: e.target.value,
+    });
   }
 
   componentDidUpdate(prevProps, prevState) {
-    // console.log('componentDidUpdate', this.state[prevState.target]);
+    console.log('componentDidUpdate', this.state[prevState.target], prevState.target);
     //checking if the quantity of currency changed
+    if (prevState.target !== this.state.target) {
+      this.calculateChange(this.state.target);
+    }
     if (prevState[prevState.target] !== this.state[prevState.target]) {
       this.calculateChange(this.state.target);
     }
@@ -84,13 +90,13 @@ export default class ExchangeCalculator extends Component<ExchangeCalculatorProp
   }
 
   componentDidMount() {
-    // console.log('componentDidMount', this.state.target);
     this.calculateChange(this.state.target);
   }
 
   render() {
     let currencies = {};
-    // console.log('exchangeCalculator render', this.state);
+    console.log('exchangeCalculator render', this.state);
+
     if (Object.keys(this.props.selectedCurrencies).length > 0) {
       currencies = this.props.selectedCurrencies;
     } else {
