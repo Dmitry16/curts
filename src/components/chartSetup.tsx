@@ -17,25 +17,20 @@ const insertElement = (element) => (elementToInsert) => {
     </Paper>
   )
 }
+// THIS CODE NEEDS TO BE REFACTORED!
 
 const ChartSetupHOC = (Component): any => {
 
   return class ChartSetup extends Component<{}, {}> {
-    constructor(props) {
-      super(props)
-      // this.state = {
-      //   chartSetup: false
-      // }
-    }
 
     clickHandler = () => {
-      if (this.state.btnLabel === 'chart' &&
+      if (this.state.btnLabel === 'X' &&
       (Object as any).entries(this.props.selectedCurrencies).length > 0) {
         setToLocalStorage(this.props.selectedCurrencies);
       }
       this.setState({
         // chartSetup: true,
-        btnLabel: this.state.btnLabel === 'chart' ? 'setup' : 'chart'
+        btnLabel: this.state.btnLabel === 'X' ? 'setup' : 'X'
       })
     }
 
@@ -61,7 +56,7 @@ const ChartSetupHOC = (Component): any => {
             return (
               <Paper key={ind} style={style}>{`${key[0]}: ${key[1]}` }</Paper>
             )
-          else if (this.state.btnLabel === 'chart' && ind < (Object as any).entries(currencies).length)
+          else if (this.state.btnLabel === 'X' && ind < (Object as any).entries(currencies).length)
             return (
               insertElement(<Paper style={style}>{`${key[0]}: ${key[1]}`}</Paper>)
                 (<Checkbox cur={key[0]} val={key[1]} dispatch={this.props.dispatch}
@@ -76,7 +71,7 @@ const ChartSetupHOC = (Component): any => {
     }
 
     renderCurrencies = () => {
-      if (this.state.btnLabel==='chart') {
+      if (this.state.btnLabel==='X') {
       // console.log('propzz in renderCurrencies', Object.entries(this.props.currencies));
         return (
             this.makeCurrArr((Object as any).entries(this.props.currencies).length, brickStyle)
@@ -86,16 +81,12 @@ const ChartSetupHOC = (Component): any => {
         return this.makeCurrArr(Object.keys(this.props.selectedCurrencies).length, brickStyle);
 
       } else {
-
         return this.makeCurrArr(5, brickStyle);
       }
     }
 
     render() {
-
-
       // console.log('renderrrrrrr', this.props.currencies);
-
       return (
         <Component
           callback={this.clickHandler}
@@ -103,7 +94,6 @@ const ChartSetupHOC = (Component): any => {
           {...this.props}
         >
           { this.renderCurrencies() }
-
         </Component>
       )
     }

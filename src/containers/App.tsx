@@ -10,20 +10,21 @@ import CurrenciesHistory from '../selectors/currenciesHistorySelector';
 import { getFromLocalStorage } from '../api/localStorage';
 import { lsRecInjection } from '../actions/localStorageActions';
 // import { fetchData } from '../actions/fetchDataAction';
-import { showInitialDialog } from '../actions/initialDialogActions';
+// import { showInitialDialog } from '../actions/initialDialogActions';
+//Material-UI Components
+import Paper from 'material-ui/Paper';
 //Components
 import ErrorBoundary from '../components/errorBoundary';
 import { ContainerMain } from '../components/styled/styled-components/wrappers';
 import AuthPage from './authPage';
 import MainPage from './mainPage';
+import MainBlock from './mainBlock';
 import About from '../components/about';
 import { Header, Footer } from '../components/header';
-import ExchangeCalculator from '../components/exchangeCalculator';
 import RatesSetup from '../components/ratesChart';
-import InitialChart from '../components/charts/initialChart';
 //Material-UI Components
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import selectedCurrencies from '../selectors/selectedCurrencies';
+// import selectedCurrencies from '../selectors/selectedCurrencies';
 
 interface AppProps {
   store: any,
@@ -63,10 +64,10 @@ class App extends Component<AppProps, {}> {
       return (
         <MainPage {...this.props}>
           <Fragment>
-            {/* <About /> */}
-            <ExchangeCalculator {...this.props} />
-            <RatesSetup {...this.props} />
-            <InitialChart {...this.props} />
+            <Paper>
+              <MainBlock {...this.props}/>
+              <RatesSetup {...this.props}/>
+            </Paper>
           </Fragment>
         </MainPage>
       )
@@ -98,7 +99,7 @@ class App extends Component<AppProps, {}> {
           <MuiThemeProvider>
             <ContainerMain>
               <Header />
-                <Route path='/curts' render={renderInit} />
+                <Route exact={true} path='/curts' render={renderInit} />
                 <Route path='/about' component={About} />
             </ContainerMain>
           </MuiThemeProvider>

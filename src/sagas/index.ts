@@ -51,19 +51,25 @@ function* callGetHistory() {
     yield put({type: "HISTORY_FETCHED", payload: history});
   }
 }
-
 function* getCurrencySaga() {
   yield* takeEvery("LS_REC_INJ" as any, callGetCurrency);
 }
-
 function* getHistorySaga() {
   yield* takeEvery("LS_REC_INJ" as any, callGetHistory);
+}
+function* currencyAddedToHistorySaga() {
+  yield* takeEvery("CURRENCY_ADDED" as any, callGetHistory);
+}
+function* currencyRemovedFromHistorySaga() {
+  yield* takeEvery("CURRENCY_REMOVED" as any, callGetHistory);
 }
 
 export default function* rootSaga(selCur) {
   
   yield all([
     fork(getCurrencySaga),
-    fork(getHistorySaga)
+    fork(getHistorySaga),
+    fork(currencyAddedToHistorySaga),
+    fork(currencyRemovedFromHistorySaga)
   ])
 }
