@@ -18,8 +18,9 @@ export default class About extends Component {
           wich retrieves data from the api of https://openexchangerates.org/. 
           By means of the app an user can get information of a currency or number of currencies which can be configuered by date and displayed in UI as a chart or calculator.           
           The process of adding or removing currencies is mirrored on the chart that is rerendered immidiately.
+          <i>To add or remove a currency first press setup.</i>
           <ul>
-          <h4 style={styles.hStyle}>The techstack:</h4>
+          <h4 style={styles.hStyle}>The Techstack:</h4>
             <li>TypeScript (v.3.0.3)</li>
             <li>React.JS (v.16.5.1)</li>
             <li>Redux (v.3.7.2)</li>
@@ -27,6 +28,7 @@ export default class About extends Component {
             <li>Redux Sagas (v.0.16.0)</li>
             <li>Redux Form (v.7.3.0)</li>
             <li>Reselect (v.3.0.1)</li>
+            <li>Recharts (v.1.2.0)</li>
             <li>CSS Modules</li>
             <li>Styled Components (v.3.1.6)</li>
             <li>Material-UI</li>
