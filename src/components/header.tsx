@@ -10,7 +10,7 @@ export const Header = () => {
   return (
       <AppBar
         style={ AppBarStyle }
-        title="Welcome to the Curts- an awsome Fintech App!!!"
+        title="Welcome to the Curts- an awsome App!!!"
         iconElementLeft={<IconButton><MenuDrawer/></IconButton>}
       />
     )

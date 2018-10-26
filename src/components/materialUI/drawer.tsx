@@ -42,7 +42,7 @@ export default class MenuDrawer extends React.Component<{}, {open}> {
           iconElementLeft={
             <IconButton>
               <NavigationClose
-                style={{color:'white'}}
+                style={{color:'red'}}
                 onClick={this.handleToggle}
               />
             </IconButton>}

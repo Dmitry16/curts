@@ -17,8 +17,12 @@ export default class About extends Component {
           This is an easily scalable (due to the flux application architecture) single-page app
           wich retrieves data from the api of https://openexchangerates.org/. 
           By means of the app an user can get information of a currency or number of currencies which can be configuered by date and displayed in UI as a chart or calculator.           
-          The process of adding or removing currencies is mirrored on the chart that is rerendered immidiately.
-          <i>To add or remove a currency first press setup.</i>
+          The process of adding or removing currencies is mirrored to the chart that is rerendered immidiately.
+          <i>To add or remove a currency first press setup button.</i>
+          <p>
+            Please note the main focus of this project is on the work with api data
+            and not on the web design.
+          </p>
           <ul>
           <h4 style={styles.hStyle}>The Techstack:</h4>
             <li>TypeScript (v.3.0.3)</li>

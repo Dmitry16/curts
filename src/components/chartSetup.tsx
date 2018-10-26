@@ -1,5 +1,6 @@
 import React from 'react';
 import Paper from 'material-ui/Paper';
+
 import * as styles from '../css/mainCSS';
 import { Checkbox } from './checkBox';
 import { setToLocalStorage } from '../api/localStorage';
@@ -7,6 +8,7 @@ import { setToLocalStorage } from '../api/localStorage';
 const brickStyle = {
   ...styles.mainPaperStyle,
   margin: 5,
+  flexWrap: 'wrap'
 }
 
 const insertElement = (element) => (elementToInsert) => {
@@ -29,7 +31,6 @@ const ChartSetupHOC = (Component): any => {
         setToLocalStorage(this.props.selectedCurrencies);
       }
       this.setState({
-        // chartSetup: true,
         btnLabel: this.state.btnLabel === 'X' ? 'setup' : 'X'
       })
     }
@@ -37,10 +38,8 @@ const ChartSetupHOC = (Component): any => {
     checkIfMarked = cur => cur in this.props.selectedCurrencies;
 
     makeCurrArr = (n = (Object as any).entries(this.props.currencies).length, style) => {
-      // console.log('makeCurrArr n:', n);
       let currArr, currencies, selectedCurrencies;
       selectedCurrencies = Object.keys(this.props.selectedCurrencies);
-      // let elementToInsert = <Checkbox />
       if (selectedCurrencies.length > 0 && this.state.btnLabel === 'setup') {
 
         currencies = this.props.selectedCurrencies;
@@ -64,7 +63,9 @@ const ChartSetupHOC = (Component): any => {
             )
           else if (n === (Object as any).entries(currencies).length && ind <(Object as any).entries(currencies).length)
             return (
-              <Paper key={ind} style={style}>{`${key[0]}: ${key[1]}` }</Paper>
+              <Paper key={ind} style={style}>
+                {`${key[0]}: ${key[1]}` }
+              </Paper>
             )
         })
       )
@@ -72,7 +73,6 @@ const ChartSetupHOC = (Component): any => {
 
     renderCurrencies = () => {
       if (this.state.btnLabel==='X') {
-      // console.log('propzz in renderCurrencies', Object.entries(this.props.currencies));
         return (
             this.makeCurrArr((Object as any).entries(this.props.currencies).length, brickStyle)
         );
@@ -86,7 +86,6 @@ const ChartSetupHOC = (Component): any => {
     }
 
     render() {
-      // console.log('renderrrrrrr', this.props.currencies);
       return (
         <Component
           callback={this.clickHandler}

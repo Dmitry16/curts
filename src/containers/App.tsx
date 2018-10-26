@@ -64,10 +64,8 @@ class App extends Component<AppProps, {}> {
       return (
         <MainPage {...this.props}>
           <Fragment>
-            <Paper>
-              <MainBlock {...this.props}/>
-              <RatesSetup {...this.props}/>
-            </Paper>
+            <MainBlock {...this.props}/>
+            <RatesSetup {...this.props}/>
           </Fragment>
         </MainPage>
       )
@@ -99,7 +97,7 @@ class App extends Component<AppProps, {}> {
           <MuiThemeProvider>
             <ContainerMain>
               <Header />
-                <Route path='/curts' render={renderInit} />
+                <Route exact={true} path='/curts' render={renderInit} />
                 <Route path='/about' component={About} />
             </ContainerMain>
           </MuiThemeProvider>
