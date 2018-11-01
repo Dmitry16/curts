@@ -39,8 +39,6 @@ class RatesSetup extends Component<RatesChartProps, {btnLabel}> {
   }
 
   render() {
-
-    // console.log('RatesChart statezz, propzz:', this.state, this.props);
      return(
       <Paper style={setupStyle}>
           { this.props.btnLabel === 'X' ? (

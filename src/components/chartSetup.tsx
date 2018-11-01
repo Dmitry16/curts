@@ -40,14 +40,11 @@ const ChartSetupHOC = (Component): any => {
     makeCurrArr = (n = (Object as any).entries(this.props.currencies).length, style) => {
       let currArr, currencies, selectedCurrencies;
       selectedCurrencies = Object.keys(this.props.selectedCurrencies);
-      if (selectedCurrencies.length > 0 && this.state.btnLabel === 'setup') {
-
+      if (selectedCurrencies.length > 0 && this.state.btnLabel === 'setup') 
+      {
         currencies = this.props.selectedCurrencies;
-
       } else {
-
         currencies = this.props.currencies;
-
       }
       return (
         currArr = (Object as any).entries(currencies).map((key,ind) => {
