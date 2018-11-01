@@ -2,15 +2,11 @@
 import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-// import { bindActionCreators } from 'redux';
-// import * as actionCreators from '../actions/actionCreators';
 //Redux-Selectors
 import CurrenciesHistory from '../selectors/currenciesHistorySelector';
 //APIs,Actions
 import { getFromLocalStorage } from '../api/localStorage';
 import { lsRecInjection } from '../actions/localStorageActions';
-// import { fetchData } from '../actions/fetchDataAction';
-// import { showInitialDialog } from '../actions/initialDialogActions';
 //Material-UI Components
 import Paper from 'material-ui/Paper';
 //Components
@@ -24,7 +20,6 @@ import { Header, Footer } from '../components/header';
 import RatesSetup from '../components/ratesChart';
 //Material-UI Components
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-// import selectedCurrencies from '../selectors/selectedCurrencies';
 
 interface AppProps {
   store: any,
