@@ -20,7 +20,7 @@ const renderTextField = ({
   />
 )
 
-const submit = ({ appKey }, dispatch, props) => {
+const submit = ({ appKey = 'd934bced1d4d402891512ca4937298a9' }, dispatch, props) => {
   return new Promise((resolve, reject) => {
     dispatch({
       type: 'AUTH',
@@ -34,7 +34,7 @@ const submit = ({ appKey }, dispatch, props) => {
     throw new SubmissionError(error);
   })
 }
-
+// appKey = 'd934bced1d4d402891512ca4937298a9';
 
 const AuthForm = props => {
   const { handleSubmit } = props

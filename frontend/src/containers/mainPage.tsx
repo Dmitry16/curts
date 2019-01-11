@@ -5,21 +5,25 @@ import * as styles from '../css/mainCSS'
 // import MenuItem from 'material-ui/MenuItem'
 // import TextField from 'material-ui/TextField'
 
+const style = {
+  ...styles.mainPaperStyle,
+  flexDirection: 'column',
+  width: '50%',
+  height: '650px',
+}
 
 export default class MainPage extends Component {
- constructor(props) {
- super(props)
-}
+  constructor(props) {
+    super(props)
+  }
  render() {
 
    let children = Children.map(this.props.children, (child =>
      React.cloneElement((child as any), this.props)
    ))
 
-   // console.log('this.props.children', this.props);
-
    return (
-    <Paper style={styles.mainPaperStyle} zDepth={3} >
+    <Paper style={style} zDepth={3} >
       { children }
     </Paper>
     )
