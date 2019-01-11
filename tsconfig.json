@@ -1,0 +1,32 @@
+{
+    "compilerOptions": {
+        "keyofStringsOnly": true,
+        "outDir": "./dist/",
+        "sourceMap": true,
+        "module": "es2015",
+        "lib": ["es5", "es2015", "dom"],
+        "jsx": "react",
+        "moduleResolution": "node",
+        "noEmitHelpers": false,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "pretty": true,
+        "allowUnreachableCode": true,
+        "allowUnusedLabels": true,
+        "noImplicitAny": false,
+        "noImplicitReturns": false,
+        "noImplicitUseStrict": false,
+        "noFallthroughCasesInSwitch": false,
+        "allowSyntheticDefaultImports": true,
+        "suppressExcessPropertyErrors": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "target": "esnext",
+        "baseUrl": "./src",
+        "allowJs": true,
+        "forceConsistentCasingInFileNames": true,
+        "typeRoots": ["./typings/modules", "./node_modules/@types"],
+        "types": ["react", "react-dom", "react-router"]
+    },
+        "include": ["./src/**/*.ts", "./src/**/*.tsx", "./src/**/*.js", "./src/**/*.jsx", "./test/**/*.ts*"],
+        "exclude": ["./node_modules/**/*", "./dist/**/*", "./src/assets/**/*", "./src/build/**/*"]
+}
