@@ -1,10 +1,10 @@
 import { createSelector } from 'reselect';
 
-const currencies = (store) => store.currency;
+const currencies = (store) => {
+  return store.currency;
+};
 
-const selectedCurrencies = currency => { 
-  console.log('currency from selectorrr:::', currency)
-  return currency.selectedCurrencies };
+const selectedCurrencies = currency => currency.selectedCurrencies;
 
 export default createSelector(
   currencies,

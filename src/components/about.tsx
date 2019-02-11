@@ -11,32 +11,33 @@ export default class About extends Component {
   render() {
 
     return (
-      <Paper style={{width: '50%',margin:'5em auto',padding:'2em'}} zDepth={1} >
-        <h3 style={styles.hStyle}>About the Curts App.</h3>
+      <Paper style={styles.mainPaperStyle} zDepth={1} >
+        <h3 style={styles.hStyle}>About the TripSorter Web App.</h3>
         <p style={styles.pStyle}>
-          This is an easily scalable (due to the flux application architecture) single-page app
-          wich retrieves data from the api of https://openexchangerates.org/. 
-          By means of the app an user can get information of a currency or number of currencies which can be configuered by date and displayed in UI as a chart or calculator.           
-          The process of adding or removing currencies is mirrored to the chart that is rerendered immidiately.
-          <i>To add or remove a currency first press setup button.</i>
+          This is an easily scalable (due to the flux application architecture) single-page,
+          responsive, progresive web app.
+          <p> User can choose
+          a travel route by setting up a starting point, destination point and a travel mode
+          (cheap or fast). All searches are saved to the local storage. So when the page is
+          reloaded it shows the last search was made by the user. To delete the saved searches
+          user has to click on the "Reset" button.
+          </p>
           <p>
-            Please note the main focus of this project is on the work with api data
-            and not on the web design.
+          The app gets data in JSON format by an API call to an external resorse
+          (in this case it is emulated).
+          Then filters the received data and composes a route accordingly to the options submited
+          by user.
           </p>
           <ul>
-          <h4 style={styles.hStyle}>The Techstack:</h4>
-            <li>TypeScript (v.3.0.3)</li>
-            <li>React.JS (v.16.5.1)</li>
-            <li>Redux (v.3.7.2)</li>
-            <li>React Router (v.4.2.2)</li>
-            <li>Redux Sagas (v.0.16.0)</li>
-            <li>Redux Form (v.7.3.0)</li>
-            <li>Reselect (v.3.0.1)</li>
-            <li>Recharts (v.1.2.0)</li>
+          <h4 style={styles.hStyle}>The tech stack used in development:</h4>
+            <li>React.JS (v.16)</li>
+            <li>Redux</li>
+            <li>React Router</li>
+            <li>Webpack</li>
+            <li>Axios</li>
             <li>CSS Modules</li>
-            <li>Styled Components (v.3.1.6)</li>
+            <li>Styled Components</li>
             <li>Material-UI</li>
-            <li>Webpack (v.4.19.1)</li>
           </ul>
         </p>
         <IconButton iconClassName="muidocs-icon-custom-github"

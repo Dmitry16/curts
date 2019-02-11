@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
 import Paper from 'material-ui/Paper';
+import * as styles from '../css/mainCSS';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import TextField from 'material-ui/TextField';
-import * as styles from '../css/mainCSS';
 
-interface ExchangeCalculatorProps {
-  currencies: any,
-  selectedCurrencies: any
-}
-interface ExchangeCalculatorState {
-  value: any,
-  selectedCurrencyName: string,
-  usdQuantity: number,
-  currencyQuantity: number,
-  target: string
-}
-export default class ExchangeCalculator extends Component<ExchangeCalculatorProps, ExchangeCalculatorState> {
+// interface ExchangeCalculatorProps {
+//   currencies: any,
+//   selectedCurrencies: any
+// }
+// interface ExchangeCalculatorState {
+//   value: any,
+//   selectedCurrencyName: string,
+//   usdQuantity: number,
+//   currencyQuantity: number,
+//   target: string
+// }
+export default class ExchangeCalculator extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -40,9 +40,9 @@ export default class ExchangeCalculator extends Component<ExchangeCalculatorProp
   matchCurrency = () => {
     if (Object.keys(this.props.selectedCurrencies).length > 0) {
       // console.log('matchCurrency selectedCurrencies', Object.entries(this.props.selectedCurrencies)[this.state.value][1]);
-      return (Object as any).entries(this.props.selectedCurrencies)[this.state.value][1]
+      return Object.entries(this.props.selectedCurrencies)[this.state.value][1]
     } else {
-      return (Object as any).entries(this.props.currencies)[this.state.value][1]
+      return Object.entries(this.props.currencies)[this.state.value][1]
     }
   }
 
@@ -63,10 +63,10 @@ export default class ExchangeCalculator extends Component<ExchangeCalculatorProp
 
   handleChange = (e) => {
     // console.log('handleChange', e.target);
-    // this.setState({
-    //   [e.target.id]: e.target.value,
-    //   target: e.target.id,
-    // });
+    this.setState({
+      [e.target.id]: e.target.value,
+      target: e.target.id,
+    });
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -108,7 +108,7 @@ export default class ExchangeCalculator extends Component<ExchangeCalculatorProp
       width: 55
     }
 
-    let currArr = (Object as any).entries(currencies).map((key,ind) => {
+    let currArr = Object.entries(currencies).map((key,ind) => {
       return (
         <MenuItem key={ind} value={ind} primaryText={key[0]} />
       )

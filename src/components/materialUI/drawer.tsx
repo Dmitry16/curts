@@ -42,7 +42,7 @@ export default class MenuDrawer extends React.Component<{}, {open}> {
           iconElementLeft={
             <IconButton>
               <NavigationClose
-                style={{color:'red'}}
+                style={{color:'white'}}
                 onClick={this.handleToggle}
               />
             </IconButton>}
@@ -51,10 +51,10 @@ export default class MenuDrawer extends React.Component<{}, {open}> {
         <Link style={{textDecoration:'none'}} to="/about">
           <MenuItem primaryText="About" onClick={ this.handleClose } leftIcon={<RemoveRedEye />} />
         </Link>
-        <Link style={{textDecoration:'none'}} to="/curts">
+        <Link style={{textDecoration:'none'}} to="/">
           <MenuItem primaryText="Main Page"  onClick={ this.handleClose } leftIcon={<Home />} />
         </Link>
-        <a  style={{textDecoration:'none'}} href='https://github.com/Dmitry16/curts/tree/gh-pages'>
+        <a  style={{textDecoration:'none'}} href='https://github.com/Dmitry16/tripsorter/tree/master'>
           <MenuItem primaryText="Source Code" leftIcon={
               <Code />}
           />

@@ -4,7 +4,7 @@ module.exports = {
     context: __dirname,
     entry: "./src/index.tsx",
     output: {
-        publicPath: "/",
+        publicPath: "/dist",
         filename: "bundle.js"
     },
 
@@ -38,7 +38,7 @@ module.exports = {
     //     "react-dom": "ReactDOM"
     // },
     devServer: {
-        contentBase: __dirname,
+        contentBase: `${__dirname}/dist`,
         watchContentBase: true,
         publicPath: '/',
         port: 8080
